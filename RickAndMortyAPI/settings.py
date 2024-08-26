@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'app1',
 ]
 
+REST_FRAMEWORK = [
+    'DEFAULT_FILTER_BACKENDS':['django.filters.rest_framework.DjangoFilterBackend']
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

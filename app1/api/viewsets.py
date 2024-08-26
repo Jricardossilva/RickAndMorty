@@ -2,12 +2,15 @@ from rest_framework import viewsets
 from .serializers import RickAndMortySerializer, RickAndMorty
 import requests
 from urllib import quote
+from django_filters.rest_framework import DjangoFilterBackend
 
 from rest_framework import Response
 
 class RickAndMorty(viewsets.ModelViewSet):
     serializer_class = RickAndMortySerializer
     queryset = RickAndMorty.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['nome', 'status', 'genero', 'especie']
     
     def create(self, request):
         nome_personagem = requests.data.get('nome', '')
