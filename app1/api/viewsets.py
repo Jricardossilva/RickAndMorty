@@ -1,10 +1,10 @@
 from rest_framework import viewsets
 from .serializers import RickAndMortySerializer, RickAndMorty
 import requests
-from urllib import quote
+from urllib.parse import quote
 from django_filters.rest_framework import DjangoFilterBackend
 
-from rest_framework import Response
+from rest_framework.response import Response
 
 class RickAndMorty(viewsets.ModelViewSet):
     serializer_class = RickAndMortySerializer
